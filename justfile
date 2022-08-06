@@ -23,6 +23,9 @@ gas-report:
 flatten:
     forge flatten src/KoolKoalazNFT.sol
 
+slither:
+    slither src/KoolKoalazNFT.sol
+
 format:
     prettier --write src/**/*.sol \
     && prettier --write src/*.sol \
