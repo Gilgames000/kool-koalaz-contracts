@@ -1,0 +1,29 @@
+{
+    "author": "Gilgameš",
+    "license": "AGPL-3.0-only",
+    "name": "kool-koalaz-contracts",
+    "version": "0.0.1",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Gilgames000/kool-koalaz-contracts.git"
+    },
+    "directories": {
+        "lib": "lib",
+        "test": "test"
+    },
+    "scripts": {
+        "build": "npx just build",
+        "test": "npx just test",
+        "clean": "npx make clean",
+        "sync": "npx just install",
+        "update": "npx just update",
+        "snapshot": "npx just snapshot",
+        "format": "npx just format"
+    },
+    "devDependencies": {
+        "just-install": "^1.0.8",
+        "prettier": "^2.7.1",
+        "prettier-plugin-solidity": "^1.0.0-dev.23"
+    }
+}
