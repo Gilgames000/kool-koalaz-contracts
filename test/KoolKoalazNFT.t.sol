@@ -259,6 +259,16 @@ contract KoolKoalazNFTTest is Test {
         assertEq(nft.whitelistSpots(alice), 0);
     }
 
+    function testMulticallAddWhitelistSpots() public {
+        bytes[] memory data = new bytes[](3);
+        data[0] = abi.encodeWithSelector(nft.addWhitelistSpots.selector, alice, 1);
+        data[1] = abi.encodeWithSelector(nft.addWhitelistSpots.selector, alice, 1);
+        data[2] = abi.encodeWithSelector(nft.addWhitelistSpots.selector, address(1337), 42);
+        nft.multicall(data);
+        assertEq(nft.whitelistSpots(alice), 2);
+        assertEq(nft.whitelistSpots(address(1337)), 42);
+    }
+
     function testRoyalty() public {
         (address receiver, uint256 amount) = nft.royaltyInfo(0, 100);
         assertEq(receiver, nft.revenueTreasury());
